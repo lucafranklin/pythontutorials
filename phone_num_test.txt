@@ -1,0 +1,2 @@
+This is the text file that tests the phone number program. The phone numbers to check are 123-123-1234
+(123)123-1234, 1-123-123-1234, and 123.123.1234. Also check 123-123-1234, ext. 123 for extensions.
