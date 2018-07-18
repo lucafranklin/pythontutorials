@@ -5,9 +5,13 @@ import re
 
 def isPhoneNumber(text):
 	#regex for phone numbers
-	phone_regexes = re.compile(r'\d{3}-\d{3}-\d{4}')
+	phone_regexes = re.compile(r'\d{3}[.\-]\d{3}[.\-]\d{4}') #normal domestic number
+	phone_regexes_w_pre = re.compile(r'\d[.\-]\d{3}[.\-]\d{3}[.\-]\d{4}') #number with prefix
+	phone_regexes_w_par = re.compile(r'\(\d{3}[\).\-]\d{3}[.\-]\d{4}') #number with parenthesis in area code
 	
 	nums = phone_regexes.findall(text)
+	nums.append(phone_regexes_w_pre.findall(text))
+	nums.append(phone_regexes_w_par.findall(text))
 	return nums
 		
 def read_file():
